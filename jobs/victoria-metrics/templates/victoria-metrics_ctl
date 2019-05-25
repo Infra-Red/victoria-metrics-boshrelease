@@ -29,6 +29,12 @@ case $1 in
       <% if_p('victoria-metrics.listen_address') do |address| %> \
       -httpListenAddr="<%= address %>" \
       <% end %> \
+      <% if_p('victoria-metrics.http_auth.username') do |username| %> \
+      -httpAuth.username="<%= username %>" \
+      <% end %> \
+      <% if_p('victoria-metrics.http_auth.password') do |password| %> \
+      -httpAuth.password="<%= password %>" \
+      <% end %> \
       >>  ${LOG_DIR}/victoria-metrics.stdout.log \
       2>> ${LOG_DIR}/victoria-metrics.stderr.log
     ;;

@@ -7,7 +7,18 @@ templates:
 packages:
   - victoria-metrics
 
+provides:
+- name: victoria-metrics
+  type: conn
+  properties:
+  - victoria-metrics.http_auth.username
+  - victoria-metrics.http_auth.password
+
 properties:
+  victoria-metrics.http_auth.username:
+    description: "Username for protecting all the HTTP endpoints with HTTP Basic Authentication"
+  victoria-metrics.http_auth.password:
+    description: "Password for protecting all the HTTP endpoints with HTTP Basic Authentication"
   victoria-metrics.retention_period:
     description: "Retention period in months for the data. Older data is automatically deleted"
     default: 1
