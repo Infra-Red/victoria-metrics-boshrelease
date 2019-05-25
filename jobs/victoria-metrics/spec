@@ -1,0 +1,16 @@
+---
+name: victoria-metrics
+
+templates:
+  victoria-metrics_ctl: bin/victoria-metrics_ctl
+
+packages:
+  - victoria-metrics
+
+properties:
+  victoria-metrics.retention_period:
+    description: "Retention period in months for the data. Older data is automatically deleted"
+    default: 1
+  victoria-metrics.listen_address:
+    description: "TCP address to listen to for http requests. By default it listens port 8428 on all the network interfaces"
+

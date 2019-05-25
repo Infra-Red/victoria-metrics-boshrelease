@@ -1,0 +1,8 @@
+---
+name: victoria-metrics
+
+dependencies: []
+
+files:
+- common/utils.sh
+- victoria-metrics/victoria-metrics-v1.18.5.tar.gz

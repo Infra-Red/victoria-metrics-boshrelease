@@ -1,0 +1,33 @@
+---
+name: victoria-metrics
+
+instance_groups:
+- name: victoria-metrics
+  azs:
+  - z1
+  instances: 1
+  vm_type: default
+  persistent_disk: 10_240
+  stemcell: default
+  networks:
+  - name: default
+  jobs:
+  - name: victoria-metrics
+    release: victoria-metrics
+    properties: {}
+
+update:
+  canaries: 1
+  max_in_flight: 32
+  canary_watch_time: 1000-100000
+  update_watch_time: 1000-100000
+  serial: false
+
+stemcells:
+- alias: default
+  os: ubuntu-xenial
+  version: latest
+
+releases:
+- name: victoria-metrics
+  version: latest
