@@ -1,5 +1,5 @@
 - type: replace
-  path: /instance_groups/name=victoria-metrics/properties?/victoria-metrics?/http_auth?
+  path: /instance_groups/name=victoria-metrics/jobs/name=victoria-metrics/properties/victoria-metrics?/http_auth?
   value:
     username: admin
     password: ((victoria_metrics_password))
