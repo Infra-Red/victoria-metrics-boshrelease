@@ -35,6 +35,11 @@ case $1 in
       <% if_p('victoria-metrics.http_auth.password') do |password| %> \
       -httpAuth.password="<%= password %>" \
       <% end %> \
+      <% if_p('victoria-metrics.tls.certificate', 'victoria-metrics.tls.private_key') do %> \
+      -tls \
+      -tlsCertFile=/var/vcap/jobs/victoria-metrics/config/victoria-metrics.crt \
+      -tlsKeyFile=/var/vcap/jobs/victoria-metrics/config/victoria-metrics.key \
+      <% end %> \
       >>  ${LOG_DIR}/victoria-metrics.stdout.log \
       2>> ${LOG_DIR}/victoria-metrics.stderr.log
     ;;
