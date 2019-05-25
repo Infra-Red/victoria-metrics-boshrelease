@@ -3,6 +3,9 @@ name: victoria-metrics
 
 templates:
   victoria-metrics_ctl: bin/victoria-metrics_ctl
+  victoria-metrics-ca.crt.erb: config/victoria-metrics-ca.crt
+  victoria-metrics.crt.erb: config/victoria-metrics.crt
+  victoria-metrics.key.erb: config/victoria-metrics.key
 
 packages:
   - victoria-metrics
@@ -13,12 +16,23 @@ provides:
   properties:
   - victoria-metrics.http_auth.username
   - victoria-metrics.http_auth.password
+  - victoria-metrics.tls.ca
+  - victoria-metrics.tls.certificate
+  - victoria-metrics.tls.private_key
 
 properties:
   victoria-metrics.http_auth.username:
     description: "Username for protecting all the HTTP endpoints with HTTP Basic Authentication"
   victoria-metrics.http_auth.password:
     description: "Password for protecting all the HTTP endpoints with HTTP Basic Authentication"
+  victoria-metrics.tls.ca:
+    description: "Certificate authority for communication between clients and VictoriaMetrics"
+  victoria-metrics.tls.certificate:
+    description: "An SSL certificate for switching from HTTP to HTTPS"
+  victoria-metrics.tls.private_key:
+    description: "An SSL key for switching from HTTP to HTTPS"
+  victoria-metrics.tls.ca:
+    description: "Certificate authority for communication between clients and VictoriaMetrics"
   victoria-metrics.retention_period:
     description: "Retention period in months for the data. Older data is automatically deleted"
     default: 1

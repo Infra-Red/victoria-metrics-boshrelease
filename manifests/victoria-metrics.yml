@@ -31,3 +31,6 @@ stemcells:
 releases:
 - name: victoria-metrics
   version: latest
+
+features:
+  use_dns_addresses: true
